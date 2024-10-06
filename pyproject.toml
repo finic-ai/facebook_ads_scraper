@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "facebook-ads-scraper"
+version = "0.1.0"
+description = ""
+authors = ["Jason Fan <jason@finic.ai>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+pydantic = "^2.9.1"
+playwright = "^1.46.0"
+python-dotenv = "^1.0.1"
+finic-py = {path = "/Users/jasonfan/Documents/code/finic/python_library"}
+
+[tool.poetry.scripts]
+start = "facebook_ads_scraper.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
