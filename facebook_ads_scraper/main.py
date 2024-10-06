@@ -14,13 +14,6 @@ API_KEY = os.getenv("API_KEY")
 BROWSER_CDP_URL = f"wss://browser-521298051240.us-central1.run.app/ws?api_key={API_KEY}&browser_id=test_browser"
 # BROWSER_CDP_URL = f"ws://localhost:8000/ws?api_key={API_KEY}&browser_id=test_browser"
 
-cookies = {
-    "datr": "MNoBZzRIG6MdRvQN96KJOkJI",
-    "ps_l": "1",
-    "ps_n": "1",
-    "wd": "441x1016"
-}
-
 class FacebookAd(BaseModel):
     library_id: Optional[str] = None
     start_date: Optional[str] = None
@@ -47,10 +40,7 @@ def main():
     print("Connecting to Browser...")
 
     # Returns a playwright BrowserContext
-    # context = finic_client.launch_browser_sync(headless=False, slow_mo=500)
-    browser = sync_playwright().start().firefox.launch(headless=False)
-    context = browser.new_context()
-    context.add_cookies([{"name": name, "value": value, "url": "https://facebook.com"} for name, value in cookies.items()])
+    context = finic_client.launch_browser_sync(headless=False, slow_mo=500)
     
     page = context.new_page()
     for url in urls:

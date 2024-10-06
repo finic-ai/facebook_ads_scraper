@@ -1,7 +1,12 @@
-# facebook-ads-scraper
-Scrape ad data from facebook's ad library
+# finic-boilerplate
+Boilerplate for a new finic project.
 
-## Instructions
+## Capture a workflow
+```bash
+finic capture
+```
+
+## Run locally
 ```bash
 poetry install
 poetry run start
