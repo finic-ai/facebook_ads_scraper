@@ -30,9 +30,9 @@ class FacebookAd(BaseModel):
 
 def main():
     finic_client = Finic()
+
+    input_data = finic_client.get_agent_input()
     
-    with open('input.json', 'r', encoding='utf-8') as f:
-        input_data = json.load(f)
     urls = input_data.get("ad_urls", [])
     
     results = []
@@ -41,10 +41,11 @@ def main():
 
     # Returns a playwright BrowserContext
     context = finic_client.launch_browser_sync(headless=False, slow_mo=500)
+
     
     page = context.new_page()
     for url in urls:
-
+        
         page.goto(url)
         page.wait_for_load_state("domcontentloaded", timeout=10000)
 
@@ -167,8 +168,9 @@ def main():
             print(f"Processed ad {i+1}/{ads.count()}")
 
     # Save results to JSON file
-    with open('results.json', 'w', encoding='utf-8') as f:
-        json.dump(results, f, ensure_ascii=False, indent=4)
+    finic_client.save_session_results(results)
+
+    # finic_client.save_browser_context(context)
 
     print(f"Scraped {len(results)} ads. Results saved to results.json")
 

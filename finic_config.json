@@ -1,0 +1,5 @@
+{
+    "agent_id": "fb-ads-scraper",
+    "agent_name": "Get facebook ads",
+    "num_retries": 3
+}
