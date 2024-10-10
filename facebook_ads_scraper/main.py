@@ -81,7 +81,8 @@ def main():
         page.wait_for_timeout(2000)
         ads_selector = "//div[normalize-space(text())='See summary details' or normalize-space(text())='See ad details']/ancestor::*[6]"
         ads = page.locator(ads_selector)
-        print(f"Found {ads.count()} ads")
+        ads_count = ads.count()
+        print(f"Found {ads_count} ads")
 
         for i in range(ads.count()):
             ad = ads.nth(i)
@@ -164,7 +165,7 @@ def main():
             # Add the extracted ad to results
             results.append(facebook_ad.dict())
 
-            print(f"Processed ad {i+1}/{ads.count()}")
+            print(f"Processed ad {i+1}/{ads_count}")
 
     # Save results to JSON file
     with open('results.json', 'w', encoding='utf-8') as f:
