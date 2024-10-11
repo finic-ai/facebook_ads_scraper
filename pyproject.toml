@@ -12,7 +12,7 @@ requests = "^2.32.3"
 pydantic = "^2.9.1"
 playwright = "^1.46.0"
 python-dotenv = "^1.0.1"
-finic-py = {path = "/Users/ayanbandyopadhyay/Desktop/psychic/python_library"}
+finic-py = "^0.1.20"
 
 [tool.poetry.scripts]
 start = "facebook_ads_scraper.main:main"

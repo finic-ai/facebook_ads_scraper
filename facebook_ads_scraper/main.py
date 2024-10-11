@@ -7,7 +7,7 @@ from typing import List, Optional
 from pydantic import BaseModel
 import json
 import platform
-from finic import Finic
+from finic_py import Finic
 load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
